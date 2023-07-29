@@ -4,17 +4,23 @@ import 'package:roll_dice/styled_text.dart';
 class GradientContainer extends StatelessWidget {
   const GradientContainer({
     super.key,
+    required this.color1,
+    required this.color2,
   });
+
+  const GradientContainer.purple({super.key})
+      : color1 = Colors.deepPurple,
+        color2 = Colors.indigo;
+
+  final Color color1;
+  final Color color2;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 26, 2, 80),
-            Color.fromARGB(255, 46, 7, 100),
-          ],
+          colors: [color1, color2],
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
         ),
